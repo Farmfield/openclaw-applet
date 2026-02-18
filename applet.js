@@ -337,9 +337,9 @@ MyApplet.prototype = {
                 let m = models[i];
                 let provider = "Other";
                 
-                // Extract provider from cmd field (e.g., "openclaw models set openrouter/google/...")
+                // Extract provider from cmd field (e.g., "openclaw sessions patch --model openrouter/google/...")
                 if (m.cmd) {
-                    let cmdMatch = m.cmd.match(/set\s+(\S+)/);
+                    let cmdMatch = m.cmd.match(/--model\s+(\S+)/);
                     if (cmdMatch) {
                         let fullModel = cmdMatch[1];
                         // Handle manual_ prefix

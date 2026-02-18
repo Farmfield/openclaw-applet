@@ -15,7 +15,6 @@
         "kimi_k2.5": true,
         "kimi_k2.5_nvidia": true,
         "gpt_5_nano": true,
-        "minimax_m2.5": true,
         "grok_4.1_fast": true,
         "gpt_5.2": true,
         "claude_opus_4.6": true,

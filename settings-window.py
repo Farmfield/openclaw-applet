@@ -52,6 +52,16 @@ class SettingsWindow(Gtk.Dialog):
         
         self.show_all()
     
+    def _normalize_model_id(self, model_id):
+        """Normalize model ID to match checkbox keys"""
+        # Remove openrouter/ prefix if present
+        if model_id.startswith('openrouter/'):
+            model_id = model_id[11:]  # len('openrouter/') = 11
+        # Normalize moonshotai -> moonshot
+        if model_id.startswith('moonshotai/'):
+            model_id = 'moonshot/' + model_id[11:]
+        return model_id
+
     def _load_models_from_json(self):
         """Load existing models from JSON and check appropriate boxes"""
         try:
@@ -63,13 +73,20 @@ class SettingsWindow(Gtk.Dialog):
                     for m in models:
                         if 'cmd' in m:
                             # Extract provider/model from cmd
-                            match = re.search(r'set\s+(\S+)', m['cmd'])
+                            match = re.search(r'--model\s+(\S+)', m['cmd'])
                             if match:
-                                active_ids.add(match.group(1))
+                                raw_id = match.group(1)
+                                # Normalize to match checkbox keys
+                                normalized_id = self._normalize_model_id(raw_id)
+                                active_ids.add(normalized_id)
+                                # Also add raw ID for openrouter models
+                                if raw_id.startswith('openrouter/'):
+                                    active_ids.add(raw_id)
                         # Also check legacy format with id containing /
                         if '/' in m.get('id', ''):
                             active_ids.add(m['id'])
-                    
+                            active_ids.add(self._normalize_model_id(m['id']))
+
                     # Check boxes that are in the JSON
                     for model_id, checkbox in self.model_checkboxes.items():
                         checkbox.set_active(model_id in active_ids)
@@ -89,7 +106,7 @@ class SettingsWindow(Gtk.Dialog):
                 short_id = model_id.replace('/', '_').replace('-', '_')
                 
                 # Construct the cmd
-                cmd = f"/usr/bin/openclaw models set {model_id} && /usr/bin/openclaw sessions clear"
+                cmd = f"/usr/bin/openclaw sessions patch agent:main:main --model {model_id} && /usr/bin/openclaw sessions clear"
                 
                 models.append({
                     "id": short_id,
@@ -190,9 +207,6 @@ class SettingsWindow(Gtk.Dialog):
             ("Moonshot AI", [
                 ("moonshot/kimi-k2.5", "Kimi K2.5")
             ]),
-            ("MiniMax", [
-                ("minimax/minimax-m2.5", "Minimax M2.5")
-            ]),
             ("Zhipu AI", [
                 ("zai/glm-5", "GLM-5")
             ]),
@@ -236,7 +250,6 @@ class SettingsWindow(Gtk.Dialog):
             ("openrouter/google/gemini-2.5-flash-lite-preview-09-2025", "Google Gemini 2.5 Flash Lite"),
             ("openrouter/google/gemini-3-flash-preview", "Google Gemini 3 Flash Preview"),
             ("openrouter/moonshotai/kimi-k2.5", "Moonshot Kimi K2.5"),
-            ("openrouter/minimax/minimax-m2.5", "Minimax M2.5"),
             ("openrouter/zai/glm-5", "Zhipu GLM-5"),
             ("openrouter/deepseek/deepseek-v3.2", "DeepSeek V3.2"),
             ("openrouter/qwen/qwen-3.5-plus", "Alibaba Qwen 3.5 Plus"),
@@ -632,7 +645,7 @@ class SettingsWindow(Gtk.Dialog):
                     model_id = self.manual_model_entries[key]["model_id"].get_text().strip()
                     
                     if title and model_id:
-                        cmd = f"/usr/bin/openclaw models set {model_id} && /usr/bin/openclaw sessions clear"
+                        cmd = f"/usr/bin/openclaw sessions patch agent:main:main --model {model_id} && /usr/bin/openclaw sessions clear"
                         models.append({
                             "id": f"manual_{model_id}",
                             "name": title,
@@ -706,7 +719,7 @@ class SettingsWindow(Gtk.Dialog):
                         if not model_id.startswith('ollama/'):
                             model_id = f"ollama/{model_id}"
                         
-                        cmd = f"/usr/bin/openclaw models set {model_id} && /usr/bin/openclaw sessions clear"
+                        cmd = f"/usr/bin/openclaw sessions patch agent:main:main --model {model_id} && /usr/bin/openclaw sessions clear"
                         ollama_models.append({"name": name, "id": model_id})
                         models.append({"id": model_id, "name": name, "cmd": cmd})
             
