@@ -1,0 +1,46 @@
+{
+    "title": {
+        "enabled": true,
+        "text": "OC Control"
+    },
+    "oc_models": {
+        "enabled": true,
+        "label": "OC Models"
+    },
+    "oc_start": {
+        "enabled": true,
+        "label": "OC Start"
+    },
+    "oc_stop": {
+        "enabled": true,
+        "label": "OC Stop"
+    },
+    "oc_restart": {
+        "enabled": true,
+        "label": "OC Restart"
+    },
+    "oc_dashboard": {
+        "enabled": true,
+        "label": "OC Dashboard"
+    },
+    "oc_json": {
+        "enabled": true,
+        "label": "OC Json"
+    },
+    "oc_folder": {
+        "enabled": true,
+        "label": "OC Folder"
+    },
+    "oc_doctor": {
+        "enabled": true,
+        "label": "OC Doctor"
+    },
+    "settings": {
+        "enabled": true,
+        "label": "Settings"
+    },
+    "credits": {
+        "enabled": true,
+        "text": "0.62a - ByFarmfield - 2026"
+    }
+}
