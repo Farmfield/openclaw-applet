@@ -1,6 +1,8 @@
 # Claw Control
 
-A Cinnamon panel applet for managing [OpenClaw](https://github.com/openclaw/openclaw) gateway operations during configuration and debugging.
+A **Cinnamon desktop environment** panel applet for managing [OpenClaw](https://github.com/openclaw/openclaw) gateway operations during configuration and debugging.
+
+> ⚠️ **Cinnamon Only** - This applet uses Cinnamon-specific APIs and will not work on GNOME, KDE, or other desktop environments.
 
 ## Features
 
@@ -19,8 +21,10 @@ A Cinnamon panel applet for managing [OpenClaw](https://github.com/openclaw/open
 
 ## Requirements
 
-- Cinnamon desktop environment
+- **Cinnamon desktop environment** (tested on Cinnamon 5.x+)
 - OpenClaw CLI installed (`/usr/bin/openclaw`)
+
+**Not compatible with:** GNOME, KDE Plasma, XFCE, or other desktop environments.
 
 ## Configuration
 
