@@ -1,0 +1,48 @@
+Meny item:
+
+Name: Gemini 2.5 Flash Lite
+
+Command: openclaw models set openrouter/google/gemini-2.5-flash-lite-preview-09-2025
+
+Menu item:
+
+Name: DeepSeek 3.2
+
+Command: openclaw models set openrouter/deepseek/deepseek-v3.2
+
+Menu item:
+
+Name: Kimi K2.5
+
+Command: openclaw models set openrouter/moonshotai/kimi-k2.5
+
+Menu item:
+
+Name: GPT-5 Nano
+
+Command: openclaw models set openai/gpt-5-nano
+
+
+Menu item:
+
+Name: Minimax M2.5
+
+Command: openclaw models set openrouter/minimax/minimax-m2.5
+
+Menu item:
+
+Name: Grok 4.1 Fast
+
+Command: openclaw models set openrouter/x-ai/grok-4.1-fast
+
+Menu item:
+
+Name: GPT-5.2
+
+Command: openclaw models set openrouter/openai/gpt-5.2
+
+Menu item:
+
+Name: Claude Opus 4.6
+
+Command: openclaw models set openrouter/anthropic/claude-opus-4.6

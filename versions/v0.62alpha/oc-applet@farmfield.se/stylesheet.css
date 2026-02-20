@@ -1,0 +1,20 @@
+/* Override popup-menu for OC Applet */
+.popup-menu-content {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+.popup-menu-item {
+    padding: 2px 4px !important;
+    margin: 0px !important;
+}
+
+.popup-menu-item:ltr {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+.popup-menu-item:rtl {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}

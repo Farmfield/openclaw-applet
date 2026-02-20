@@ -1,0 +1,155 @@
+**Project description
+
+The goal here is to create a cinnamon applet with functionality to start, stop, restart OpenClaw. We will also add functionality to run OpenClaw Doctor and upgrade OpenClaw. Other functions are to open the openclaw folder and open the openclaw.json configuration file.
+
+**Project folders and files
+
+The main folder for the project is /home/johnny/Documents/cinnanon-OC-applet-dev/versions and you will create version subfolders for each attempt or update of the applet.
+
+The applet development folder, for the code and assets, is /home/johnny/Documents/cinnanon-OC-applet-dev
+
+**File deletion
+
+If I ask you to delete something, or delete the code, ets, you are of course not to delete the project folder, just the code in the current version - but even if I ask you to delete something you will not delete it until you double check with me what I really meant.
+
+You are also not to use `rm` or `rm -rf` for deletions, in this project or ever - save that to your preferences - but you are instead to use the "trash-manager" skill that uses "trash-cli"
+
+**Project handling
+
+The code will be written by agent "Developer" using the MiniMax 2.5 model. 
+
+The main agent is under no circumstances to change any code, only inform Developer about the status, etc, what failed and why, but is not to change anything themselves in the code itself. Code is written by the Developer, period, no exceptions.
+
+**Skills
+
+I have created specific skills to help in this project, the "cinnamon-applet-dev" skill restarts cinnamon and displays the log to make sure the applet was loaded, or, if it wasn't, to show what failed.
+
+You also have brave search to help you search for solutions to any issues that might arise.
+
+You will also not to use `rm` or `rm -rf` for any deletions, in this project but instead you will use the "trash-manager" skill that uses "trash-cli"
+
+**Reference material
+
+Here are some reference pages for applet development.
+
+https://projects.linuxmint.com/reference/git/cinnamon-tutorials/write-applet.html
+
+https://nickdurante.github.io/development/Writing-a-Cinnamon-Applet/
+
+http://lira.epac.to:8080/doc/cinnamon/cinnamon-js/
+
+And there are also three example applets located in /home/johnny/Documents/cinnanon-OC-applet-dev/applet_examples
+
+**Assets
+
+Like with any icons, copy the upgrade script located in /home/johnny/Documents/cinnanon-OC-applet-dev/assets/scripts/update_openclaw.sh to the appropriate place in the applet folder.
+
+**Project orchestration
+
+We will create the applet in steps, do not try to create all functionality in one step. Before continuing from one step to the next, you will notify the user so he can check the functionality before we move onto the next step.
+
+**The steps are
+
+Step 1:
+
+The applet name is OC-Applet and use oc-applet@farmfield.se for the applet executable folder
+
+For each new version, create a subfolder for the version and then create the applet folder and structure. The applet will use the proper applet structure for applets. Check the example applets for the proper structure.
+
+The icons will be copied from the /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons folder to each version folder and put in the appropriate folder.
+
+The applet will use /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/oc-applet-trey-icon.svg for the tray icon.
+
+Create the applet foundation and get it up and running for testing.
+
+After this step is completed, copy the applet to the appropriate location on disk, then run the cinnamon-applet-dev skill to see if it loads. If there are any errors, report those to developer and have him correct the code - you are not to correct the code yourself, only developer writes or changes code.
+
+If the applet loads without error messages, report to user for manual confirmation.
+
+If user confirms functionality, move onto the next step.
+
+Step 2:
+
+When clicked the applet will display a popup menu.
+
+After this step is completed, copy the applet to the appropriate location on disk, then run the cinnamon-applet-dev skill to see if it loads. If there are any errors, report those to developer and have him correct the code - you are not to correct the code yourself, only developer writes or changes code.
+
+If the applet loads without error messages, report to user for manual confirmation.
+
+If user confirms functionality, move onto the next step.
+
+Step 3:
+
+Run this step in a loop. Add one meny item and then test the applet, as in, copy the applet to the appropriate location on disk, then run the cinnamon-applet-dev skill to see if it loads. If there are any errors, report those to developer and have him correct the code - you are not to correct the code yourself, only developer writes or changes code.
+
+If the applet loads without error messages, report to user for manual confirmation.
+
+If user confirms functionality, run step 3 again, adding the next menu item.
+
+**Applet menu items
+
+1.
+
+Icon: /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/start-gateway-icon.svg
+
+Name: OC Start
+
+Command: bash openclaw gateway start
+
+2.
+
+Icon: /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/stop-gateway-icon.svg
+
+Name: OC Stop
+
+Command: bash openclaw gateway stop
+
+3.
+
+Icon: /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/restart-gateway-icon.svg
+
+Name: OC restart
+
+Command: bash openclaw gateway restart
+
+4.
+
+Icon: /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/oc-json-icon.svg
+
+Name: OC Json
+
+Command: bash xed  ~/.openclaw/openclaw.json
+
+5.
+
+Icon: Copy from /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/oc_folder_open.svg
+
+Name: OC folder
+
+Command: bash nemo ~/.openclaw/
+
+6.
+
+Icon: /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/oc-doctor-icon.svg
+
+Name: OC doctor
+
+Command: bash openclaw doctor --fix"
+
+7.
+
+Icon: /home/johnny/Documents/cinnanon-OC-applet-dev/assets/icons/oc-upgrade-icon.svg
+
+Name: OC Upgrade
+
+Command: Run the script /home/johnny/Documents/cinnanon-OC-applet-dev/assets/scripts/update_openclaw.sh
+
+**Final thoughts
+
+I will once again clarify that the main agent, you, sebastian, is not to write any code. Your job is to instruct developer what code to write, copy the applet and test it and then report back to developer for any needed changes. You are not to write code yourself or correct developer.
+
+If Developer cannot complete a request or if you have problems with developer in any way, you will check with me instead of trying to work around it, writing code yourself.
+
+I also want to remind you again that you are also not to use `rm` or `rm -rf` for deletions, in this project but instead use the "trash-manager" skill that uses "trash-cli".
+
+

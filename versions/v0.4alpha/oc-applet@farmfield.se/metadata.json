@@ -1,0 +1,8 @@
+{
+    "uuid": "oc-applet@farmfield.se",
+    "name": "OC-Applet",
+    "description": "OpenClaw Cinnamon Panel Applet",
+    "icon": "icons/oc-applet-trey-icon.svg",
+    "author": "farmfield",
+    "version": "2.0.0"
+}

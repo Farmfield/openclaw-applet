@@ -1,0 +1,30 @@
+/* Override ALL popup menu styles for OC Applet */
+#OC-Applet .popup-menu-content,
+.oc-applet-menu .popup-menu-content,
+.popup-menu-content {
+    padding: 0px !important;
+    margin: 0px !important;
+}
+
+#OC-Applet .popup-menu-item,
+.oc-applet-menu .popup-menu-item,
+.popup-menu-item {
+    padding: 2px 4px !important;
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+    margin: 0px !important;
+}
+
+#OC-Applet .popup-menu-item:ltr,
+.oc-applet-menu .popup-menu-item:ltr,
+.popup-menu-item:ltr {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+
+#OC-Applet .popup-menu-item:rtl,
+.oc-applet-menu .popup-menu-item:rtl,
+.popup-menu-item:rtl {
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
